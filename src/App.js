@@ -8,28 +8,40 @@ import photoImg from './photo.jpg';
 
 function App() {
   useEffect(() => {
-    // Smooth scrolling for navigation links
-    const handleNavClick = (e) => {
-      if (e.target.getAttribute('href')?.startsWith('#')) {
+    // Smooth scrolling for navigation links and buttons
+    const handleSmoothScroll = (e) => {
+      const href = e.target.getAttribute('href') || e.target.closest('a')?.getAttribute('href');
+      if (href?.startsWith('#')) {
         e.preventDefault();
-        const targetId = e.target.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
+        const targetElement = document.querySelector(href);
         if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
+          targetElement.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
         }
       }
     };
 
-    // Add event listeners to all anchor tags
-    const anchors = document.querySelectorAll('a[href^="#"]');
-    anchors.forEach(anchor => {
-      anchor.addEventListener('click', handleNavClick);
+    // Add event listeners to all anchor tags and buttons with href
+    const clickableElements = document.querySelectorAll('a[href^="#"], button[onclick*="#"]');
+    clickableElements.forEach(element => {
+      element.addEventListener('click', handleSmoothScroll);
+    });
+
+    // Also add to hero buttons specifically
+    const heroButtons = document.querySelectorAll('.hero-buttons a');
+    heroButtons.forEach(button => {
+      button.addEventListener('click', handleSmoothScroll);
     });
 
     // Cleanup event listeners
     return () => {
-      anchors.forEach(anchor => {
-        anchor.removeEventListener('click', handleNavClick);
+      clickableElements.forEach(element => {
+        element.removeEventListener('click', handleSmoothScroll);
+      });
+      heroButtons.forEach(button => {
+        button.removeEventListener('click', handleSmoothScroll);
       });
     };
   }, []);
@@ -59,21 +71,24 @@ function App() {
             <h1>Driving Growth in <span className="highlight">Automobile</span> Aftermarket</h1>
             <p>With over 30 years of experience in the automotive industry, spanning trading and 5+ years as a business growth consultant, we help automotive businesses accelerate their success in the automobile aftermarket industry.</p>
             <div className="hero-buttons">
-              <button className="btn-primary">Get Started</button>
-              <button className="btn-secondary">Learn More</button>
+              <a href="#contact"><button className="btn-primary">Get Started</button></a>
+              <a href="#story"><button className="btn-secondary">Learn More</button></a>
             </div>
             <div className="social-links">
-              <a href="https://youtube.com/@yourchannel" target="_blank" rel="noopener noreferrer" className="youtube">
+              <a href="https://youtube.com/@lgnandedkar2041?si=r7vkf1uCdOOQujYy" target="_blank" rel="noopener noreferrer" className="youtube">
                 <FontAwesomeIcon icon={faYoutube} />
               </a>
-              <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" className="facebook">
+              <a href="https://www.facebook.com/share/16btthLGff/" target="_blank" rel="noopener noreferrer" className="facebook">
                 <FontAwesomeIcon icon={faFacebookF} />
               </a>
-              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="linkedin">
+              <a href="https://www.linkedin.com/in/laxmikant-nandedkar-465887247" target="_blank" rel="noopener noreferrer" className="linkedin">
                 <FontAwesomeIcon icon={faLinkedinIn} />
               </a>
-              <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="instagram">
+              <a href="https://www.instagram.com/laxmikant_nandedkar?igsh=ODZzeDEwMTYzajAz" target="_blank" rel="noopener noreferrer" className="instagram">
                 <FontAwesomeIcon icon={faInstagram} />
+              </a>
+              <a href="https://medium.com/@LaxmikantNandedkar" target="_blank" rel="noopener noreferrer" className="medium">
+                <span className="medium-text">M</span>
               </a>
             </div>
           </div>
@@ -116,7 +131,7 @@ function App() {
         <div className="section-gradient"></div>
         <div className="container">
           <h2>Comprehensive Consulting Solutions</h2>
-          <p>Tailored strategies and expert guidance to accelerate your growth in the competitive automotive aftermarket industry</p>
+          <p>Strategic consulting solutions and proven methodologies to accelerate sustainable growth in the competitive automotive aftermarket industry</p>
           <div className="services-grid">
             <div className="service-card">
               <div className="service-icon">
@@ -291,19 +306,15 @@ function App() {
             <div className="contact-info">
               <div className="contact-item">
                 <h4><FontAwesomeIcon icon={faEnvelope} /> Email</h4>
-                <p><a href="mailto:info@automobileaftermarket.com">info@automobileaftermarket.com</a></p>
+                <p><a href="mailto:laxmikantnandedkar@gmail.com">laxmikantnandedkar@gmail.com</a></p>
               </div>
               <div className="contact-item">
                 <h4><FontAwesomeIcon icon={faPhone} /> Phone</h4>
-                <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                <p><a href="tel:+919673388415">+91 96733 88415</a></p>
               </div>
               <div className="contact-item">
                 <h4><FontAwesomeIcon icon={faBlog} /> Blog</h4>
-                <p><a href="https://medium.com/@khushrajnandedkar" target="_blank" rel="noopener noreferrer">Follow us on Medium</a></p>
-              </div>
-              <div className="contact-item">
-                <h4><FontAwesomeIcon icon={faGlobe} /> Website</h4>
-                <p><a href="https://automobileaftermarket.com" target="_blank" rel="noopener noreferrer">automobileaftermarket.com</a></p>
+                <p><a href="https://medium.com/@LaxmikantNandedkar" target="_blank" rel="noopener noreferrer">Follow us on Medium</a></p>
               </div>
             </div>
           </div>
