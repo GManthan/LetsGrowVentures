@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt, faRocket, faHandshake, faTruck, faBookOpen, faEye, faBullseye, faEnvelope, faPhone, faBlog, faGlobe, faHome, faCogs, faQuoteLeft, faUsers, faIndustry, faChartBar, faLaptopCode, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarAlt, faRocket, faHandshake, faTruck, faBookOpen, faEye, faBullseye, faEnvelope, faPhone, faBlog, faIndustry, faChartBar, faLaptopCode, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import { faYoutube, faFacebookF, faLinkedinIn, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import logoImg from './logo.jpg';
 import photoImg from './photo.jpg';
@@ -24,8 +24,27 @@ function App() {
   const toggleMobileMenu = () => {
     const navMenu = document.querySelector('.nav-menu');
     const hamburger = document.querySelector('.hamburger');
+    const body = document.body;
+    
     navMenu.classList.toggle('active');
     hamburger.classList.toggle('active');
+    
+    // Prevent scrolling when menu is open
+    if (navMenu.classList.contains('active')) {
+      body.style.overflow = 'hidden';
+    } else {
+      body.style.overflow = 'auto';
+    }
+  };
+
+  const closeMobileMenu = () => {
+    const navMenu = document.querySelector('.nav-menu');
+    const hamburger = document.querySelector('.hamburger');
+    const body = document.body;
+    
+    navMenu.classList.remove('active');
+    hamburger.classList.remove('active');
+    body.style.overflow = 'auto';
   };
 
   useEffect(() => {
@@ -81,11 +100,11 @@ function App() {
             <span></span>
           </div>
           <ul className="nav-menu">
-            <li><a href="#home" onClick={toggleMobileMenu}>Home</a></li>
-            <li><a href="#services" onClick={toggleMobileMenu}>Services</a></li>
-            <li><a href="#testimonials" onClick={toggleMobileMenu}>Testimonials</a></li>
-            <li><a href="#story" onClick={toggleMobileMenu}>About</a></li>
-            <li><a href="#contact" onClick={toggleMobileMenu}>Contact</a></li>
+            <li><a href="#home" onClick={closeMobileMenu}>Home</a></li>
+            <li><a href="#services" onClick={closeMobileMenu}>Services</a></li>
+            <li><a href="#testimonials" onClick={closeMobileMenu}>Testimonials</a></li>
+            <li><a href="#story" onClick={closeMobileMenu}>About</a></li>
+            <li><a href="#contact" onClick={closeMobileMenu}>Contact</a></li>
           </ul>
         </div>
       </nav>
