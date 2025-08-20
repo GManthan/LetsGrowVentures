@@ -1113,9 +1113,9 @@ body {
     }
     
     .hero-image img {
-        max-height: 400px;
-        width: 85%;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+        max-height: 350px;
+        width: 75%;
+        box-shadow: 0 12px 25px rgba(0,0,0,0.15);
     }
     
     .stats-container {
@@ -1264,10 +1264,10 @@ body {
     }
     
     .hero-image img {
-        max-height: 280px;
-        border-radius: 15px;
-        width: 85%;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        max-height: 250px;
+        border-radius: 12px;
+        width: 75%;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.12);
     }
     
     /* Sections */
@@ -1466,9 +1466,9 @@ body {
 /* Extra Small Mobile (320px and below) */
 @media (max-width: 320px) {
     .hero-image img {
-        max-height: 240px;
-        width: 80%;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+        max-height: 200px;
+        width: 70%;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 }
 
