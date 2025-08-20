@@ -1114,7 +1114,8 @@ body {
     
     .hero-image img {
         max-height: 400px;
-        width: 90%;
+        width: 85%;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.18);
     }
     
     .stats-container {
@@ -1265,7 +1266,8 @@ body {
     .hero-image img {
         max-height: 280px;
         border-radius: 15px;
-        width: 95%;
+        width: 85%;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
     
     /* Sections */
@@ -1458,6 +1460,15 @@ body {
     .footer p {
         font-size: 0.85rem;
         padding: 0 15px;
+    }
+}
+
+/* Extra Small Mobile (320px and below) */
+@media (max-width: 320px) {
+    .hero-image img {
+        max-height: 240px;
+        width: 80%;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.12);
     }
 }
 
