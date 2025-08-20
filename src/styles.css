@@ -1064,31 +1064,173 @@ body {
 }
 
 @media (max-width: 480px) {
-    .stats-container {
-        grid-template-columns: 1fr;
+    /* Navigation */
+    .navbar {
+        padding: 0.8rem 0;
+    }
+    
+    .logo img {
+        height: 50px;
+    }
+    
+    .nav-menu {
+        top: 70px;
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding: 5rem 0 2rem;
     }
     
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
     }
     
     .hero-content p {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-buttons {
+        gap: 0.8rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary, .btn-secondary {
+        min-width: 200px;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .social-links a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    
+    .hero-image img {
+        max-height: 300px;
+        border-radius: 15px;
+    }
+    
+    /* Sections */
+    .section {
+        padding: 3rem 0;
     }
     
     .section h2 {
         font-size: 1.8rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
     }
     
-    .blog-card,
-    .service-card,
-    .testimonial-card,
+    .section > .container > p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    /* Stats */
+    .stat-item {
+        padding: 1.5rem 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+    }
+    
+    /* Services */
+    .service-card {
+        padding: 1.5rem;
+    }
+    
+    .service-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .service-card p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    /* Testimonials */
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+    
+    .testimonial-card p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    /* Story */
     .story-item {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem;
     }
     
+    .story-header {
+        margin-bottom: 1rem;
+    }
+    
+    .story-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .story-icon svg {
+        font-size: 1.3rem;
+    }
+    
+    .story-item h3 {
+        font-size: 1.2rem;
+    }
+    
+    .story-item p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+    
+    /* Contact */
     .contact-form {
         padding: 1.5rem;
+    }
+    
+    .contact-form h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+    
+    .form-group label {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .contact-item {
+        margin-bottom: 1.5rem;
+    }
+    
+    .contact-item h4 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .contact-item p {
+        font-size: 0.9rem;
     }
 }
 
