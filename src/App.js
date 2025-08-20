@@ -7,6 +7,20 @@ import logoImg from './logo.jpg';
 import photoImg from './photo.jpg';
 
 function App() {
+  const handleBusinessTypeChange = (e) => {
+    const othersField = document.getElementById('othersField');
+    const othersInput = document.getElementById('others');
+    
+    if (e.target.value === 'others') {
+      othersField.style.display = 'block';
+      othersInput.required = true;
+    } else {
+      othersField.style.display = 'none';
+      othersInput.required = false;
+      othersInput.value = '';
+    }
+  };
+
   useEffect(() => {
     // Smooth scrolling for navigation links and buttons
     const handleSmoothScroll = (e) => {
@@ -58,7 +72,7 @@ function App() {
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#story">Our Story</a></li>
+            <li><a href="#story">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
@@ -179,6 +193,9 @@ function App() {
         </div>
       </section>
 
+      {/* Page Separator */}
+      <div className="page-separator"></div>
+
       {/* Testimonials Section */}
       <section id="testimonials" className="section testimonials">
         <div className="section-gradient"></div>
@@ -219,37 +236,55 @@ function App() {
         </div>
       </section>
 
+      {/* Page Separator */}
+      <div className="page-separator"></div>
+
       {/* Story Section */}
       <section id="story" className="section story">
         <div className="section-gradient"></div>
         <div className="container">
-          <h2>Our Journey, Vision & Mission</h2>
-          <p>Built on decades of industry experience and driven by a passion for automotive excellence</p>
+          <h2>Professional Profile, Vision & Mission</h2>
+          <p>Three decades of industry leadership, strategic vision, and commitment to automotive aftermarket excellence</p>
           <div className="story-content">
             <div className="story-item">
-              <div className="story-icon">
-                <FontAwesomeIcon icon={faBookOpen} />
+              <div className="story-content-text">
+                <div className="story-header">
+                  <div className="story-icon">
+                    <FontAwesomeIcon icon={faBookOpen} />
+                  </div>
+                  <h3>Professional Profile</h3>
+                </div>
+                <p>Laxmikant Nandedkar is a seasoned business owner, writer, and speaker with a distinguished presence in the two-wheeler spare parts aftermarket sector. Since 1995, he has led his own distribution business, focusing on the automotive spares industry. With a Bachelor's in Engineering from Rajarambapu Institute of Technology, he combines technical expertise with extensive business acumen. As a renowned public speaker and industry mentor, he shares practical insights at sectoral events and maintains an active digital presence, educating professionals through social media platforms and training consultancy services.</p>
               </div>
-              <h3>Our Story</h3>
-              <p>Founded on three decades of automotive trading experience, our journey began in the heart of the aftermarket industry. What started as a passion for automotive excellence has evolved into a comprehensive consulting practice dedicated to helping businesses thrive in this dynamic sector. Our hands-on experience, combined with deep industry insights, positions us uniquely to guide companies through their growth journey and navigate the complexities of the modern automotive aftermarket.</p>
             </div>
             <div className="story-item">
-              <div className="story-icon">
-                <FontAwesomeIcon icon={faEye} />
+              <div className="story-content-text">
+                <div className="story-header">
+                  <div className="story-icon">
+                    <FontAwesomeIcon icon={faEye} />
+                  </div>
+                  <h3>Our Vision</h3>
+                </div>
+                <p>To strengthen aftermarket community by sharing knowledge and driving collective growth among distributors, wholesalers, retailers, and industry partners in the two wheeler spares industry.</p>
               </div>
-              <h3>Our Vision</h3>
-              <p>To strengthen aftermarket community by sharing knowledge and driving collective growth among distributors, wholesalers, retailers, and industry partners in the two wheeler spares industry.</p>
             </div>
             <div className="story-item">
-              <div className="story-icon">
-                <FontAwesomeIcon icon={faBullseye} />
+              <div className="story-content-text">
+                <div className="story-header">
+                  <div className="story-icon">
+                    <FontAwesomeIcon icon={faBullseye} />
+                  </div>
+                  <h3>Our Mission</h3>
+                </div>
+                <p>To connect, educate, and motivate auto aftermarket professionals by curating relevant market trends, celebrating community accomplishments, and sharing proven tactics that elevate performance and prosperity across the sector.</p>
               </div>
-              <h3>Our Mission</h3>
-              <p>To connect, educate, and motivate auto aftermarket professionals by curating relevant market trends, celebrating community accomplishments, and sharing proven tactics that elevate performance and prosperity across the sector.</p>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Page Separator */}
+      <div className="page-separator"></div>
 
       {/* Contact Section */}
       <section id="contact" className="section contact">
@@ -277,28 +312,32 @@ function App() {
                   <input type="email" id="email" name="email" required />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="company">Company Name</label>
+                  <label htmlFor="phone">Phone Number *</label>
+                  <input type="tel" id="phone" name="phone" required />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="company">Shop/Company Name</label>
                   <input type="text" id="company" name="company" />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="phone">Phone Number</label>
-                  <input type="tel" id="phone" name="phone" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="service">Service Interested In</label>
-                  <select id="service" name="service">
-                    <option value="">Select a service</option>
-                    <option value="business-development">Strategic Business Development</option>
-                    <option value="market-research">Market Research & Analysis</option>
-                    <option value="supply-chain">Supply Chain Excellence</option>
-                    <option value="growth-acceleration">Growth Acceleration</option>
-                    <option value="digital-transformation">Digital Transformation</option>
-                    <option value="team-development">Team Development & Training</option>
+                  <label htmlFor="businessType">Type of Business *</label>
+                  <select id="businessType" name="businessType" required onChange={handleBusinessTypeChange}>
+                    <option value="">Select business type</option>
+                    <option value="manufacturer">Manufacturer</option>
+                    <option value="distributor">Distributor</option>
+                    <option value="wholesaler">Wholesaler</option>
+                    <option value="retailer">Retailer</option>
+                    <option value="mechanic">Mechanic</option>
+                    <option value="others">Others</option>
                   </select>
+                </div>
+                <div className="form-group" id="othersField" style={{display: 'none'}}>
+                  <label htmlFor="others">Please specify *</label>
+                  <input type="text" id="others" name="others" />
                 </div>
                 <div className="form-group">
                   <label htmlFor="message">Message *</label>
-                  <textarea id="message" name="message" rows="5" required placeholder="Tell us about your business challenges and goals..."></textarea>
+                  <textarea id="message" name="message" rows="5" required placeholder="How can we help you?"></textarea>
                 </div>
                 <button type="submit" className="btn-primary">Send Message</button>
               </form>
