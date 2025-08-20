@@ -21,6 +21,13 @@ function App() {
     }
   };
 
+  const toggleMobileMenu = () => {
+    const navMenu = document.querySelector('.nav-menu');
+    const hamburger = document.querySelector('.hamburger');
+    navMenu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  };
+
   useEffect(() => {
     // Smooth scrolling for navigation links and buttons
     const handleSmoothScroll = (e) => {
@@ -68,12 +75,17 @@ function App() {
           <div className="logo">
             <img src={logoImg} alt="Company Logo" />
           </div>
+          <div className="hamburger" onClick={toggleMobileMenu}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
           <ul className="nav-menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#story">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#home" onClick={toggleMobileMenu}>Home</a></li>
+            <li><a href="#services" onClick={toggleMobileMenu}>Services</a></li>
+            <li><a href="#testimonials" onClick={toggleMobileMenu}>Testimonials</a></li>
+            <li><a href="#story" onClick={toggleMobileMenu}>About</a></li>
+            <li><a href="#contact" onClick={toggleMobileMenu}>Contact</a></li>
           </ul>
         </div>
       </nav>
