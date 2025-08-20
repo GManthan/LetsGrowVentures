@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/LetsGrowVentures/static/css/main.2c0ca15d.css",
-    "main.js": "/LetsGrowVentures/static/js/main.e173f338.js",
+    "main.css": "/LetsGrowVentures/static/css/main.2dbd92aa.css",
+    "main.js": "/LetsGrowVentures/static/js/main.75c97c3e.js",
     "static/js/453.c460ea66.chunk.js": "/LetsGrowVentures/static/js/453.c460ea66.chunk.js",
     "static/media/photo.jpg": "/LetsGrowVentures/static/media/photo.7c9e734bb0efda84c20b.jpg",
     "static/media/logo.jpg": "/LetsGrowVentures/static/media/logo.84945463a0269da475b8.jpg",
     "index.html": "/LetsGrowVentures/index.html",
-    "main.2c0ca15d.css.map": "/LetsGrowVentures/static/css/main.2c0ca15d.css.map",
-    "main.e173f338.js.map": "/LetsGrowVentures/static/js/main.e173f338.js.map",
+    "main.2dbd92aa.css.map": "/LetsGrowVentures/static/css/main.2dbd92aa.css.map",
+    "main.75c97c3e.js.map": "/LetsGrowVentures/static/js/main.75c97c3e.js.map",
     "453.c460ea66.chunk.js.map": "/LetsGrowVentures/static/js/453.c460ea66.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2c0ca15d.css",
-    "static/js/main.e173f338.js"
+    "static/css/main.2dbd92aa.css",
+    "static/js/main.75c97c3e.js"
   ]
 }
