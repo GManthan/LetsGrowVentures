@@ -139,6 +139,8 @@ function App() {
         </div>
       </section>
 
+      {/* Page Separator */}
+      <div className="page-separator"></div>
 
       {/* Services Section */}
       <section id="services" className="section services">
