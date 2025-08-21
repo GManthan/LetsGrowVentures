@@ -6,7 +6,7 @@ import { faYoutube, faFacebookF, faLinkedinIn, faInstagram } from '@fortawesome/
 import logoImg from './logo.jpg';
 import photoImg from './photo.jpg';
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwqrkhfKrTPLgeEOSTyL10B0Ugo9sXYxblVOQl7s1V9ZI6l38R50DkeuKIZCFMZlpmZBw/exec";
+// Netlify Forms - no URL needed!
 
 function App() {
   const handleBusinessTypeChange = (e) => {
@@ -23,77 +23,21 @@ function App() {
     }
   };
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
+  const handleFormSubmit = (e) => {
+    // For Netlify Forms, we don't prevent default - let Netlify handle it
+    // Netlify will automatically redirect to a thank you page or show success message
     
-    const formData = new FormData(e.target);
     const submitButton = e.target.querySelector('button[type="submit"]');
     
-    // Disable submit button and show loading state
+    // Show loading state
     submitButton.disabled = true;
     submitButton.textContent = 'Sending...';
     
-    // Log the data being sent for debugging
-    console.log('Form data entries:', Array.from(formData.entries()));
-    
-    try {
-      // Try using FormData directly (multipart/form-data)
-      const response = await fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData
-      });
-      
-      // With no-cors mode, we can't read the response, but if we get here without error,
-      // it means the request was sent successfully
-      console.log('Form submission completed successfully');
-      alert('Thank you! Your message has been sent successfully. We will get back to you soon.');
-      e.target.reset(); // Reset form
-      
-      // Hide "others" field if it was shown
-      const othersField = document.getElementById('othersField');
-      const othersInput = document.getElementById('others');
-      othersField.style.display = 'none';
-      othersInput.required = false;
-      
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      console.error('Error details:', error.message);
-      
-      // Fallback: Try with URLSearchParams
-      try {
-        console.log('Trying fallback method with URLSearchParams...');
-        const params = new URLSearchParams();
-        for (const [key, value] of formData.entries()) {
-          params.append(key, value);
-        }
-        
-        const fallbackResponse = await fetch(SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: params.toString()
-        });
-        
-        console.log('Fallback submission completed successfully');
-        alert('Thank you! Your message has been sent successfully. We will get back to you soon.');
-        e.target.reset();
-        
-        const othersField = document.getElementById('othersField');
-        const othersInput = document.getElementById('others');
-        othersField.style.display = 'none';
-        othersInput.required = false;
-        
-      } catch (fallbackError) {
-        console.error('Both submission methods failed:', fallbackError);
-        alert('Sorry, there was an error sending your message. Please try again or contact us directly.');
-      }
-    } finally {
-      // Re-enable submit button
-      submitButton.disabled = false;
-      submitButton.textContent = 'Send Message';
+    // Hide "others" field if it was shown (cleanup)
+    const othersField = document.getElementById('othersField');
+    const othersInput = document.getElementById('others');
+    if (othersField && othersField.style.display === 'block') {
+      // Don't hide it yet - let the form submit first
     }
   };
 
@@ -405,7 +349,20 @@ function App() {
             <div className="contact-form">
               <h3>Start Your Growth Journey</h3>
               <p>Fill out our consultation form and let's discuss how we can help you achieve your business objectives.</p>
-              <form className="contact-form-fields" onSubmit={handleFormSubmit}>
+              <form 
+                name="contact" 
+                method="POST" 
+                data-netlify="true" 
+                netlify-honeypot="bot-field"
+                className="contact-form-fields" 
+                onSubmit={handleFormSubmit}
+              >
+                {/* Hidden field for Netlify Forms */}
+                <input type="hidden" name="form-name" value="contact" />
+                {/* Honeypot field for spam protection */}
+                <div style={{display: 'none'}}>
+                  <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </div>
                 <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="firstName">First Name *</label>
