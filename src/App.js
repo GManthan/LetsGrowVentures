@@ -35,9 +35,15 @@ function App() {
       params.append(key, value);
     }
     
+    // Add source parameter for debugging
+    params.append('source', 'github-pages');
+    
     // Disable submit button and show loading state
     submitButton.disabled = true;
     submitButton.textContent = 'Sending...';
+    
+    // Log the data being sent for debugging
+    console.log('Submitting form data:', Object.fromEntries(params.entries()));
     
     try {
       const response = await fetch(SCRIPT_URL, {
@@ -51,6 +57,7 @@ function App() {
       
       // With no-cors mode, we can't read the response, but if we get here without error,
       // it means the request was sent successfully
+      console.log('Form submission completed successfully');
       alert('Thank you! Your message has been sent successfully. We will get back to you soon.');
       e.target.reset(); // Reset form
       
@@ -62,6 +69,7 @@ function App() {
       
     } catch (error) {
       console.error('Error submitting form:', error);
+      console.error('Error details:', error.message);
       alert('Sorry, there was an error sending your message. Please try again or contact us directly.');
     } finally {
       // Re-enable submit button
