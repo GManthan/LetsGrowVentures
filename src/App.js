@@ -6,7 +6,7 @@ import { faYoutube, faFacebookF, faLinkedinIn, faInstagram } from '@fortawesome/
 import logoImg from './logo.jpg';
 import photoImg from './photo.jpg';
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx7DxjmTKcCnthMcz1vonVC5YiGzC1AFK2uR_rxTl6M0iv4sW4cRZO76GHhXJicdwzKmA/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwgsy-AeTxv6uQ_q92jO7VkoqjjaAHSGwQBTZDC5LmloYJy4ABW7rngVAzKBjv-2io6fQ/exec";
 
 function App() {
   const handleBusinessTypeChange = (e) => {
