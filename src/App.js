@@ -21,6 +21,45 @@ function App() {
     }
   };
 
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    const submitButton = e.target.querySelector('button[type="submit"]');
+    
+    // Disable submit button and show loading state
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+    
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbx7DxjmTKcCnthMcz1vonVC5YiGzC1AFK2uR_rxTl6M0iv4sW4cRZO76GHhXJicdwzKmA/exec', {
+        method: 'POST',
+        body: formData
+      });
+      
+      if (response.ok) {
+        // Success - show success message
+        alert('Thank you! Your message has been sent successfully. We will get back to you soon.');
+        e.target.reset(); // Reset form
+        
+        // Hide "others" field if it was shown
+        const othersField = document.getElementById('othersField');
+        const othersInput = document.getElementById('others');
+        othersField.style.display = 'none';
+        othersInput.required = false;
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Sorry, there was an error sending your message. Please try again or contact us directly.');
+    } finally {
+      // Re-enable submit button
+      submitButton.disabled = false;
+      submitButton.textContent = 'Send Message';
+    }
+  };
+
   const toggleMobileMenu = () => {
     const navMenu = document.querySelector('.nav-menu');
     const hamburger = document.querySelector('.hamburger');
@@ -329,7 +368,7 @@ function App() {
             <div className="contact-form">
               <h3>Start Your Growth Journey</h3>
               <p>Fill out our consultation form and let's discuss how we can help you achieve your business objectives.</p>
-              <form className="contact-form-fields">
+              <form className="contact-form-fields" onSubmit={handleFormSubmit}>
                 <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="firstName">First Name *</label>
