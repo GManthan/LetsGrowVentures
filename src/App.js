@@ -6,6 +6,8 @@ import { faYoutube, faFacebookF, faLinkedinIn, faInstagram } from '@fortawesome/
 import logoImg from './logo.jpg';
 import photoImg from './photo.jpg';
 
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx7DxjmTKcCnthMcz1vonVC5YiGzC1AFK2uR_rxTl6M0iv4sW4cRZO76GHhXJicdwzKmA/exec";
+
 function App() {
   const handleBusinessTypeChange = (e) => {
     const othersField = document.getElementById('othersField');
@@ -32,7 +34,7 @@ function App() {
     submitButton.textContent = 'Sending...';
     
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbx7DxjmTKcCnthMcz1vonVC5YiGzC1AFK2uR_rxTl6M0iv4sW4cRZO76GHhXJicdwzKmA/exec', {
+      const response = await fetch(SCRIPT_URL, {
         method: 'POST',
         body: formData
       });
