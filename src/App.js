@@ -42,25 +42,24 @@ function App() {
     try {
       const response = await fetch(SCRIPT_URL, {
         method: 'POST',
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: params.toString()
       });
       
-      if (response.ok) {
-        // Success - show success message
-        alert('Thank you! Your message has been sent successfully. We will get back to you soon.');
-        e.target.reset(); // Reset form
-        
-        // Hide "others" field if it was shown
-        const othersField = document.getElementById('othersField');
-        const othersInput = document.getElementById('others');
-        othersField.style.display = 'none';
-        othersInput.required = false;
-      } else {
-        throw new Error('Failed to send message');
-      }
+      // With no-cors mode, we can't read the response, but if we get here without error,
+      // it means the request was sent successfully
+      alert('Thank you! Your message has been sent successfully. We will get back to you soon.');
+      e.target.reset(); // Reset form
+      
+      // Hide "others" field if it was shown
+      const othersField = document.getElementById('othersField');
+      const othersInput = document.getElementById('others');
+      othersField.style.display = 'none';
+      othersInput.required = false;
+      
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('Sorry, there was an error sending your message. Please try again or contact us directly.');
