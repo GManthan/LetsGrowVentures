@@ -29,6 +29,12 @@ function App() {
     const formData = new FormData(e.target);
     const submitButton = e.target.querySelector('button[type="submit"]');
     
+    // Convert FormData to URLSearchParams for proper encoding
+    const params = new URLSearchParams();
+    for (const [key, value] of formData.entries()) {
+      params.append(key, value);
+    }
+    
     // Disable submit button and show loading state
     submitButton.disabled = true;
     submitButton.textContent = 'Sending...';
@@ -36,7 +42,10 @@ function App() {
     try {
       const response = await fetch(SCRIPT_URL, {
         method: 'POST',
-        body: formData
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: params.toString()
       });
       
       if (response.ok) {
