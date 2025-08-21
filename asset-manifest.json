@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/LetsGrowVentures/static/css/main.c8ae0ad5.css",
-    "main.js": "/LetsGrowVentures/static/js/main.ef5c6746.js",
+    "main.js": "/LetsGrowVentures/static/js/main.4fe13dc7.js",
     "static/js/453.c460ea66.chunk.js": "/LetsGrowVentures/static/js/453.c460ea66.chunk.js",
     "static/media/photo.jpg": "/LetsGrowVentures/static/media/photo.7c9e734bb0efda84c20b.jpg",
     "static/media/logo.jpg": "/LetsGrowVentures/static/media/logo.84945463a0269da475b8.jpg",
     "index.html": "/LetsGrowVentures/index.html",
     "main.c8ae0ad5.css.map": "/LetsGrowVentures/static/css/main.c8ae0ad5.css.map",
-    "main.ef5c6746.js.map": "/LetsGrowVentures/static/js/main.ef5c6746.js.map",
+    "main.4fe13dc7.js.map": "/LetsGrowVentures/static/js/main.4fe13dc7.js.map",
     "453.c460ea66.chunk.js.map": "/LetsGrowVentures/static/js/453.c460ea66.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c8ae0ad5.css",
-    "static/js/main.ef5c6746.js"
+    "static/js/main.4fe13dc7.js"
   ]
 }
